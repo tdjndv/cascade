@@ -1,0 +1,66 @@
+
+<section class="post-detail">
+  @if (loading()) {
+    <p class="muted">Loading…</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (post(); as p) {
+    <article class="post">
+      <div class="title-line">
+        <button
+          type="button"
+          class="vote"
+          [class.voted]="p.hasVoted"
+          [disabled]="!isLoggedIn()"
+          (click)="toggleVote()"
+        >
+          ▲
+        </button>
+
+        @if (p.url) {
+          <a [href]="p.url" target="_blank" rel="noopener noreferrer">{{ p.title }}</a>
+          <span class="host">({{ hostname(p.url) }})</span>
+        } @else {
+          <span class="title">{{ p.title }}</span>
+        }
+      </div>
+
+      <div class="meta">
+        {{ p.score }} {{ p.score === 1 ? 'point' : 'points' }}
+        by <a [routerLink]="['/user', p.author.username]">{{ p.author.username }}</a>
+        {{ timeAgo(p.createdAt) }}
+        · {{ p.commentCount }} {{ p.commentCount === 1 ? 'comment' : 'comments' }}
+      </div>
+
+      @if (p.body) {
+        <p class="body">{{ p.body }}</p>
+      }
+    </article>
+
+    @if (isLoggedIn()) {
+      <div class="compose">
+        <textarea
+          rows="5"
+          [ngModel]="commentBody()"
+          (ngModelChange)="commentBody.set($event)"
+          placeholder="Add a comment…"
+        ></textarea>
+        <button type="button" [disabled]="saving()" (click)="submitComment()">
+          {{ saving() ? 'Posting…' : 'Add comment' }}
+        </button>
+      </div>
+    } @else {
+      <p class="muted">
+        <a routerLink="/signin">Sign in</a> to comment.
+      </p>
+    }
+
+    <div class="thread">
+      @for (comment of comments(); track comment.id) {
+        <app-comment-node [comment]="comment" [postId]="p.id" />
+      } @empty {
+        <p class="muted">No comments yet.</p>
+      }
+    </div>
+  }
+</section>

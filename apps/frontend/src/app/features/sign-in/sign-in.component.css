@@ -1,0 +1,74 @@
+
+.auth {
+  max-width: 22rem;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8125rem;
+  color: #666;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+input:focus {
+  outline: 2px solid #ff6600;
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.45rem 1rem;
+  border: 1px solid #ff6600;
+  border-radius: 4px;
+  background: #ff6600;
+  color: white;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.field-error,
+.form-error {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #c0392b;
+}
+
+.alt {
+  margin-top: 1.25rem;
+  font-size: 0.8125rem;
+  color: #999;
+}
+
+.alt a {
+  color: #666;
+}

@@ -1,0 +1,52 @@
+
+<section class="feed">
+  @if (loading()) {
+    <p class="muted">Loading…</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (posts().length === 0) {
+    <p class="muted">Nothing here yet.</p>
+  } @else {
+    <ol class="posts">
+      @for (post of posts(); track post.id; let i = $index) {
+        <li>
+          <span class="rank">{{ i + 1 }}.</span>
+
+          <button
+            type="button"
+            class="vote"
+            [class.voted]="post.hasVoted"
+            [disabled]="!isLoggedIn()"
+            (click)="toggleVote(post)"
+            [attr.aria-label]="post.hasVoted ? 'Remove upvote' : 'Upvote'"
+          >
+            ▲
+          </button>
+
+          <div class="content">
+            <div class="title-line">
+              @if (post.url) {
+                <a [href]="post.url" target="_blank" rel="noopener noreferrer">
+                  {{ post.title }}
+                </a>
+                <span class="host">({{ hostname(post.url) }})</span>
+              } @else {
+                <a [routerLink]="['/post', post.id]">{{ post.title }}</a>
+              }
+            </div>
+
+            <div class="meta">
+              {{ post.score }} {{ post.score === 1 ? 'point' : 'points' }}
+              by <a [routerLink]="['/user', post.author.username]">{{ post.author.username }}</a>
+              {{ timeAgo(post.createdAt) }}
+              ·
+              <a [routerLink]="['/post', post.id]">
+                {{ post.commentCount }} {{ post.commentCount === 1 ? 'comment' : 'comments' }}
+              </a>
+            </div>
+          </div>
+        </li>
+      }
+    </ol>
+  }
+</section>

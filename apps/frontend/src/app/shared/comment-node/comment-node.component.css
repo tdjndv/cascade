@@ -1,0 +1,148 @@
+
+.comment {
+  padding: 0.4rem 0;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.collapse {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #bbb;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.collapse:hover {
+  color: #666;
+}
+
+.vote {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #bbb;
+  font-size: 0.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.vote:hover:not(:disabled) {
+  color: #666;
+}
+
+.vote.voted {
+  color: #ff6600;
+}
+
+.vote:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.author {
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.author:hover {
+  text-decoration: underline;
+}
+
+.body {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #1a1a1a;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.actions button {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.75rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  color: #666;
+  text-decoration: underline;
+}
+
+/* reply box */
+
+.reply-box {
+  margin: 0.5rem 0;
+  max-width: 34rem;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid #ff6600;
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.reply-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.reply-actions button {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  font: inherit;
+  font-size: 0.8125rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.reply-actions button.primary {
+  background: #ff6600;
+  border-color: #ff6600;
+  color: white;
+}
+
+.reply-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* nesting */
+
+.replies {
+  margin-left: 1.25rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid #ececec;
+}

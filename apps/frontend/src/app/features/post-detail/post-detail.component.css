@@ -1,0 +1,136 @@
+
+.post-detail {
+  max-width: 48rem;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.post {
+  padding-bottom: 0.75rem;
+}
+
+.title-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.title-line a,
+.title {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+.title-line a:hover {
+  text-decoration: underline;
+}
+
+.host {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.vote {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #bbb;
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.vote:hover:not(:disabled) {
+  color: #666;
+}
+
+.vote.voted {
+  color: #ff6600;
+}
+
+.vote:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.meta {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.meta a {
+  color: #999;
+  text-decoration: none;
+}
+
+.meta a:hover {
+  text-decoration: underline;
+}
+
+.body {
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 42rem;
+}
+
+.compose {
+  margin: 1rem 0 1.5rem;
+  max-width: 42rem;
+}
+
+.compose textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+}
+
+.compose textarea:focus {
+  outline: 2px solid #ff6600;
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.compose button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #ff6600;
+  border-radius: 4px;
+  background: #ff6600;
+  color: white;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.compose button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.thread {
+  border-top: 1px solid #ececec;
+  padding-top: 0.75rem;
+}
+
+.muted {
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.muted a {
+  color: #666;
+}
+
+.error {
+  color: #c0392b;
+}

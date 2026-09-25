@@ -1,0 +1,74 @@
+
+<div class="comment">
+  <div class="header">
+    <button type="button" class="collapse" (click)="collapsed.set(!collapsed())">
+      [{{ collapsed() ? '+' : '–' }}]
+    </button>
+
+    @if (!comment().deleted) {
+      <button
+        type="button"
+        class="vote"
+        [class.voted]="comment().hasVoted"
+        [disabled]="!isLoggedIn()"
+        (click)="toggleVote()"
+      >
+        ▲
+      </button>
+    }
+
+    @if (comment().author; as author) {
+      <a class="author" [routerLink]="['/user', author.username]">{{ author.username }}</a>
+    } @else {
+      <span class="author">[deleted]</span>
+    }
+
+    <span class="meta">
+      {{ comment().score }} {{ comment().score === 1 ? 'point' : 'points' }}
+      · {{ timeAgo(comment().createdAt) }}
+    </span>
+
+    @if (collapsed() && replyCount() > 0) {
+      <span class="meta">({{ replyCount() }} more)</span>
+    }
+  </div>
+
+  @if (!collapsed()) {
+    <p class="body">{{ comment().body }}</p>
+
+    <div class="actions">
+      @if (isLoggedIn() && !comment().deleted) {
+        <button type="button" (click)="replying.set(!replying())">reply</button>
+      }
+
+      @if (currentUsername() === comment().author?.username && !comment().deleted) {
+        <button type="button" (click)="remove()">delete</button>
+      }
+    </div>
+
+    @if (replying()) {
+      <div class="reply-box">
+        <textarea
+          rows="4"
+          [ngModel]="replyBody()"
+          (ngModelChange)="replyBody.set($event)"
+          placeholder="Write a reply…"
+        ></textarea>
+        <div class="reply-actions">
+          <button type="button" class="primary" [disabled]="saving()" (click)="submitReply()">
+            {{ saving() ? 'Posting…' : 'Reply' }}
+          </button>
+          <button type="button" (click)="replying.set(false)">Cancel</button>
+        </div>
+      </div>
+    }
+
+    @if (comment().replies.length > 0) {
+      <div class="replies">
+        @for (reply of comment().replies; track reply.id) {
+          <app-comment-node [comment]="reply" [postId]="postId()" />
+        }
+      </div>
+    }
+  }
+</div>

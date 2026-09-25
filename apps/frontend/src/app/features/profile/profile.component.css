@@ -1,0 +1,126 @@
+
+.profile {
+  max-width: 48rem;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.stats dt {
+  color: #999;
+}
+
+.stats dd {
+  margin: 0;
+  color: #1a1a1a;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 0.75rem;
+}
+
+.tabs button {
+  padding: 0.3rem 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font: inherit;
+  font-size: 0.8125rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.tabs button:hover {
+  color: #666;
+}
+
+.tabs button.active {
+  color: #ff6600;
+  border-bottom-color: #ff6600;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  padding: 0.5rem 0;
+}
+
+.title-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.title-line a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.title-line a:visited {
+  color: #7a7a7a;
+}
+
+.title-line a:hover {
+  text-decoration: underline;
+}
+
+.host {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.meta {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.meta a {
+  color: #999;
+  text-decoration: none;
+}
+
+.meta a:hover {
+  text-decoration: underline;
+}
+
+.comment-body {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #1a1a1a;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 42rem;
+}
+
+.muted {
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.error {
+  color: #c0392b;
+}

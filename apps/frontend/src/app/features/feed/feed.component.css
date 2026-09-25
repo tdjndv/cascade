@@ -1,0 +1,104 @@
+
+.feed {
+  max-width: 48rem;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+.posts li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.45rem 0;
+}
+
+.rank {
+  min-width: 1.75rem;
+  text-align: right;
+  color: #999;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.vote {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #bbb;
+  font-size: 0.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.vote:hover:not(:disabled) {
+  color: #666;
+}
+
+.vote.voted {
+  color: #ff6600;
+}
+
+.vote:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.content {
+  min-width: 0;
+}
+
+.title-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.title-line a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.title-line a:visited {
+  color: #7a7a7a;
+}
+
+.title-line a:hover {
+  text-decoration: underline;
+}
+
+.host {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.meta {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.meta a {
+  color: #999;
+  text-decoration: none;
+}
+
+.meta a:hover {
+  text-decoration: underline;
+}
+
+.muted {
+  color: #999;
+}
+
+.error {
+  color: #c0392b;
+}

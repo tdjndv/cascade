@@ -1,0 +1,34 @@
+
+<section class="submit">
+  <h1>Submit</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      Title
+      <input type="text" formControlName="title" maxlength="300" />
+    </label>
+    @if (form.controls.title.touched && form.controls.title.invalid) {
+      <p class="field-error">Enter a title of at least 3 characters</p>
+    }
+
+    <label>
+      URL
+      <input type="url" formControlName="url" placeholder="https://" />
+    </label>
+
+    <p class="or">or</p>
+
+    <label>
+      Text
+      <textarea rows="8" formControlName="body"></textarea>
+    </label>
+
+    @if (error()) {
+      <p class="form-error">{{ error() }}</p>
+    }
+
+    <button type="submit" [disabled]="loading()">
+      {{ loading() ? 'Submitting…' : 'Submit' }}
+    </button>
+  </form>
+</section>

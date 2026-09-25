@@ -1,0 +1,17 @@
+
+<header class="top-bar">
+  <nav class="left">
+    <a class="brand" routerLink="/">Cascade</a>
+    <a routerLink="/submit" routerLinkActive="active">submit</a>
+  </nav>
+
+  <nav class="right">
+    @if (isLoggedIn()) {
+      <a [routerLink]="['/user', username()]">{{ username() }}</a>
+      <button type="button" (click)="signOut()">sign out</button>
+    } @else {
+      <a routerLink="/signin" routerLinkActive="active">sign in</a>
+      <a routerLink="/signup" routerLinkActive="active">sign up</a>
+    }
+  </nav>
+</header>

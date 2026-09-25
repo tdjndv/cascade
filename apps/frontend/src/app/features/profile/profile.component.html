@@ -1,0 +1,76 @@
+
+<section class="profile">
+  @if (loading()) {
+    <p class="muted">Loading…</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (profile(); as user) {
+    <h1>{{ user.username }}</h1>
+
+    <dl class="stats">
+      <dt>Karma</dt>
+      <dd>{{ user.karma }}</dd>
+      <dt>Joined</dt>
+      <dd>{{ joined(user.createdAt) }}</dd>
+    </dl>
+
+    <div class="tabs">
+      <button
+        type="button"
+        [class.active]="tab() === 'posts'"
+        (click)="tab.set('posts')"
+      >
+        {{ user.postCount }} {{ user.postCount === 1 ? 'post' : 'posts' }}
+      </button>
+      <button
+        type="button"
+        [class.active]="tab() === 'comments'"
+        (click)="tab.set('comments')"
+      >
+        {{ user.commentCount }} {{ user.commentCount === 1 ? 'comment' : 'comments' }}
+      </button>
+    </div>
+
+    @if (tab() === 'posts') {
+      <ul class="list">
+        @for (post of posts(); track post.id) {
+          <li>
+            <div class="title-line">
+              @if (post.url) {
+                <a [href]="post.url" target="_blank" rel="noopener noreferrer">
+                  {{ post.title }}
+                </a>
+                <span class="host">({{ hostname(post.url) }})</span>
+              } @else {
+                <a [routerLink]="['/post', post.id]">{{ post.title }}</a>
+              }
+            </div>
+            <div class="meta">
+              {{ post.score }} {{ post.score === 1 ? 'point' : 'points' }}
+              · {{ timeAgo(post.createdAt) }}
+              · <a [routerLink]="['/post', post.id]">
+                  {{ post.commentCount }} {{ post.commentCount === 1 ? 'comment' : 'comments' }}
+                </a>
+            </div>
+          </li>
+        } @empty {
+          <li class="muted">No posts yet.</li>
+        }
+      </ul>
+    } @else {
+      <ul class="list">
+        @for (comment of comments(); track comment.id) {
+          <li>
+            <div class="meta">
+              {{ comment.score }} {{ comment.score === 1 ? 'point' : 'points' }}
+              · {{ timeAgo(comment.createdAt) }}
+              · on <a [routerLink]="['/post', comment.post.id]">{{ comment.post.title }}</a>
+            </div>
+            <p class="comment-body">{{ comment.body }}</p>
+          </li>
+        } @empty {
+          <li class="muted">No comments yet.</li>
+        }
+      </ul>
+    }
+  }

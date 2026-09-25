@@ -1,0 +1,77 @@
+
+.submit {
+  max-width: 36rem;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8125rem;
+  color: #666;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid #ff6600;
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.or {
+  margin: 0;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #bbb;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.45rem 1rem;
+  border: 1px solid #ff6600;
+  border-radius: 4px;
+  background: #ff6600;
+  color: white;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.field-error,
+.form-error {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #c0392b;
+}
