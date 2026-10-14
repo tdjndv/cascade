@@ -2,7 +2,7 @@
 
 A Hacker News style link aggregator. Submit links or text posts, vote on them, and discuss in threaded comments that nest to any depth.
 
-**[Live demo →](http://44.204.211.229)**
+## Tech stack
 
 Angular 22 · NestJS 11 · MySQL 8.4 · TypeORM · Nx monorepo · Docker
 
